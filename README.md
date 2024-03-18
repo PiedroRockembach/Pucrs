@@ -1,1 +1,1 @@
-# Pucrs
+# Repositório de exercícios PUCRS
