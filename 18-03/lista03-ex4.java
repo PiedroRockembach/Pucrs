@@ -14,7 +14,6 @@ public class ex4
         int horaInicio = teclado.nextInt();
         System.out.println("Digite os minutos de inicio: ");
         int minutosInicio = teclado.nextInt();
-        
     }
 }
 //Incompleto
