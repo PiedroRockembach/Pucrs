@@ -30,5 +30,8 @@ public class biblioteca_de_métodos {
     public static double VolumeCilindro(double raio, double altura){
         return ((Math.PI * Math.pow(raio, 2)) * altura);
     }
+    public static double AreaEsfera(double raio){
+        return ((Math.PI * Math.pow(raio, 2)) * 4);
+    }
     
 }
