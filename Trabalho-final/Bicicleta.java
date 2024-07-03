@@ -13,10 +13,17 @@ public class Bicicleta
     }
     
     public void RealizaDevolucao() {
+        quantidadeUnidades = quantidadeUnidades + 1;
     
     }
     
-    public void RealizaEmprestimo() {
+    public Bicicleta RealizaEmprestimo() {
+        if(quantidadeUnidades < 0) {
+            System.out.println("Não existem bicicletas disponíveis");
+        }
+        quantidadeUnidades = quantidadeUnidades - 1;
+        
+        return this;
     
     }
     
