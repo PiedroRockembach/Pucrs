@@ -48,7 +48,30 @@ public class Clube
                     cadastroBicicletas.BuscaBicicletaPeloModelo(modelo);
                     break;
                 case 7:
-                    
+                        if(cadastroBicicletas.TotalUnidades() <= 0) {
+                            System.out.println("Não há bicicletas disponíveis no momento!");
+                            break;
+                        } 
+                        System.out.println("Digite o modelo desejado: ");
+                        String modelo = teclado.nextLine();
+                        if(cadastroBicicletas.BuscaBicicletaPeloModelo(modelo) == null) {
+                            System.out.println("Modelo não encontrado!");
+                            break;
+                        }
+                        System.out.println("Qual usuario gostaria de retirar este modelo?");
+                        String usuario = teclado.nextLine();
+                        Membro membro = cadastroMembros.BuscaMembroPeloNome(usuario);
+                        if( membro == null) {
+                            System.out.println("Membro não encontrado!");
+                            break;
+                        }
+                        if(membro.getBicicletaEmprestada() != null) {
+                            System.out.println("Este usuário já possui uma bicicleta emprestada!");
+                            break;
+                        }
+                        
+
+
                     break;
                 case 8:
                     break;
