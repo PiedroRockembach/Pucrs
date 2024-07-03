@@ -13,8 +13,11 @@ public class CadastroBicicleta
     }
     
     public Bicicleta BuscaBicicletaPeloModelo(String modelo) {
-        //apagar linha de baixo
-        return new Bicicleta(0,0,"");
+        for(int i = 0; i < bicicletas.length; i++) {
+            if(bicicletas[i].getModelo().equalsIgnoreCase(modelo)) return bicicletas[i];
+        }
+        System.out.println("Modelo não encontrado!");
+        return null;
     }
     
     public boolean AdicionaBicicleta() {
@@ -34,10 +37,17 @@ public class CadastroBicicleta
     }
     
     public int TotalUnidades() {
-        //apagar linha de baixo
-        return 0;
+        int acum = 0;
+        for(int i = 0 ; i< bicicletas.length; i++ ){
+            acum = acum + bicicletas[i].getQuantidadeUnidades();
+        }
+        return acum;
     }
+
     public void MostraBicicletas() {
+        for(int i = 0; i < bicicletas.length; i++) {
+            System.out.println(bicicletas[i].toString());
+        }
     }
     
 }
