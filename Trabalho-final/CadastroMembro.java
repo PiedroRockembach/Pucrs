@@ -1,18 +1,39 @@
 
-public class CadastroMembro
-{
-    private Membro[] membros;
+public class CadastroMembro {
+   private Membro[] membros;
+   private int contador;
+     
+    public CadastroMembro() {
+        membros = new Membro[10];
+        contador=0;
+   }
     
-    public boolean AdicionaMembro() {
-        //apagar linha de baixo
-        return true;
+   public boolean AdicionaMembro(Membro novoMembro) {
+        if (contador < membros.length) {
+            membros[contador]=novoMembro;
+            contador++;
+            return true;
+        }
+        
+        return false;
     }
-    
+   
     public Membro BuscaMembroPeloNome(String nome) {
-        //apagar linha de baixo
-        return new Membro();
+        for (int i = 0; i < contador; i++) {
+            if (membros[i].getNome().equalsIgnoreCase(nome)) {
+                return membros[i];
+            }
     }
-    
-    public void MostraMembros() {
+    return null;
+   }
+   
+   public void MostraMembros() {
+         if (contador == 0) {
+            System.out.println("Nenhum membro cadastrado.");
+        } else {
+            for (int i = 0; i < contador; i++) {
+                System.out.println(membros[i].toString());
+            }
     }
+   }
 }
