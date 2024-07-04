@@ -2,17 +2,21 @@ import java.util.Scanner;
 public class Clube
 {
     public static void main() {
+        System.out.println("\f");
         Menu();
     }
     
     public static void Menu() {
-        Scanner teclado = new Scanner(System.in);
+        
+        
         CadastroBicicleta cadastroBicicletas = new CadastroBicicleta();
         CadastroMembro cadastroMembros = new CadastroMembro(); 
         boolean fazerLoop = true;
-        
+        String modelo;
         do {
-            System.out.println("\f1 - Incluir membro.");
+            
+            Scanner teclado = new Scanner(System.in);
+            System.out.println("\n1 - Incluir membro.");
             System.out.println("2 - Mostrar membros.");
             System.out.println("3 - Pesquisar membro pelo nome.");
             System.out.println("4 - Incluir bicicleta.");
@@ -25,26 +29,48 @@ public class Clube
             int opcao = teclado.nextInt();
             switch (opcao) {
                 case 1:
-                    cadastroMembros.AdicionaMembro();
+                    System.out.println("\fDigite seu nome: ");
+                    teclado.nextLine();
+                    String membroNome = teclado.nextLine();                    
+                    System.out.println("Digite seu cpf sem espaços ou traços: ");
+
+                    int membroMatricula = teclado.nextInt();
+                    if(cadastroMembros.BuscaMembroPelaMatricula(membroMatricula) != null) {
+                        System.out.println("\fEste cpf já está cadastrado em outro membro. \n");
+                        break;
+                    }
+                    System.out.println("Digite o nome da sua cidade de origem: ");
+                    teclado.nextLine();
+                    String membroCidade = teclado.nextLine();
+                    Membro newMembro = new Membro(membroMatricula, membroNome, membroCidade);
+                    cadastroMembros.AdicionaMembro(newMembro);
+                    System.out.println("\fMembro: " + membroNome + " cadastrado com sucesso.\n" );
                     break;
                 case 2:
                     cadastroMembros.MostraMembros();
                     break;
                 case 3:
+                    teclado.nextLine();
                     System.out.println("\fDigite o nome do membro que deseja buscar: ");
                     String nome = teclado.nextLine();
-                    cadastroMembros.BuscaMembroPeloNome(nome);
-                    teclado.nextLine();
+                    Membro membroPeloNome = cadastroMembros.BuscaMembroPeloNome(nome);
+                    if(membroPeloNome == null) {
+                        System.out.println("Membro não encontrado!");
+                        break;
+                    }
+                    System.out.println(membroPeloNome.toString());
+                    
                     break;
                 case 4:
                     cadastroBicicletas.AdicionaBicicleta();
+                    System.out.println("\fbicicleta cadastrada com sucesso.\n" );
                     break;
                 case 5:
                     cadastroBicicletas.MostraBicicletas();
                     break;
                 case 6:
                     System.out.println("\fDigite o modelo da bicicleta que deseja buscar: ");
-                    String modelo = teclado.nextLine();
+                    modelo = teclado.nextLine();
                     cadastroBicicletas.BuscaBicicletaPeloModelo(modelo);
                     break;
                 case 7:
@@ -53,7 +79,7 @@ public class Clube
                             break;
                         } 
                         System.out.println("Digite o modelo desejado: ");
-                        String modelo = teclado.nextLine();
+                        modelo = teclado.nextLine();
                         if(cadastroBicicletas.BuscaBicicletaPeloModelo(modelo) == null) {
                             System.out.println("Modelo não encontrado!");
                             break;
@@ -69,9 +95,6 @@ public class Clube
                             System.out.println("Este usuário já possui uma bicicleta emprestada!");
                             break;
                         }
-                        
-
-
                     break;
                 case 8:
                     break;
@@ -85,7 +108,8 @@ public class Clube
                     continue;
                     
             }
-            
+            teclado.close();
         } while(fazerLoop);
+        
     }
 }
