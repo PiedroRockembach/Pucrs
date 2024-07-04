@@ -32,7 +32,7 @@ public class CadastroBicicleta
 
         bicicletas[contador] = new Bicicleta(contador, quantidade, modelo);
         contador = contador + 1;
-
+        teclado.nextLine();
         return true;
     }
     
@@ -45,7 +45,12 @@ public class CadastroBicicleta
     }
 
     public void MostraBicicletas() {
-        for(int i = 0; i < bicicletas.length; i++) {
+        if(contador == 0) {
+            System.out.println("\fNão há bicicletas cadastradas!");
+            return;
+        }
+        System.out.println("\fModelos cadastrados: ");
+        for(int i = 0; i < contador; i++) {
             System.out.println(bicicletas[i].toString());
         }
     }

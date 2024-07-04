@@ -12,11 +12,12 @@ public class Bicicleta
         this.modelo = modelo;
     }
     
-    public getQuantidadeUnidades() {
+    public int getQuantidadeUnidades() {
         return quantidadeUnidades;
     }
 
-    public getModelo() { return modelo; }
+    public String getModelo() { return modelo; }
+    public int getCodigo() { return codigo; }
 
     public void RealizaDevolucao() {
         quantidadeUnidades = quantidadeUnidades + 1;
@@ -34,7 +35,6 @@ public class Bicicleta
     }
     
     public String toString() {
-        System.out.println("Modelo: " + modelo);
-        System.out.println("Quantidade de unidades: " + quantidadeUnidades);
+        return "Modelo: " + modelo + "\nQuantidade de unidades: " + quantidadeUnidades;
     }
 }

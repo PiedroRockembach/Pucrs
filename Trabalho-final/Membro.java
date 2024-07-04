@@ -46,5 +46,7 @@ public class Membro {
     public void devolverBicicleta() {
         this.bicicletaEmprestada = null;
     }
-    
+    public String toString() {
+        return "Nome: " + nome + "\nCidade de origem: " + cidadeOrigem + "\n";
+     }
 }

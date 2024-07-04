@@ -26,14 +26,27 @@ public class CadastroMembro {
     }
     return null;
    }
+
+   public Membro BuscaMembroPelaMatricula(int matricula) {
+        for (int i = 0; i < contador; i++) {
+            if (membros[i].getMatricula() == matricula) {
+                return membros[i];
+            }
+        }
+        return null;
+    }
+
    
    public void MostraMembros() {
          if (contador == 0) {
             System.out.println("Nenhum membro cadastrado.");
-        } else {
-            for (int i = 0; i < contador; i++) {
-                System.out.println(membros[i].toString());
-            }
-    }
+            return;
+        } 
+
+        System.out.println("Membros: \n");
+        for (int i = 0; i < contador; i++) {
+            System.out.println(membros[i].toString());
+        }
+        return;
    }
 }
