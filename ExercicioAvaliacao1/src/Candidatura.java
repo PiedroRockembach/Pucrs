@@ -8,12 +8,17 @@ public class Candidatura {
 	}
 
 	public boolean cadastraCandidato(Candidato c) {
+		String novo = Integer.toString(c.getNumero());
 		for (Candidato candidato : candidatos) {
-			if (candidato.getNumero() == c.getNumero()  && candidato.getMunicipio().equals(c.getMunicipio())) {
+			String atual = Integer.toString(candidato.getNumero());
+			
+			if (novo.charAt(0) == atual.charAt(0) 
+				&& atual.charAt(1) == novo.charAt(1)
+				) {
 				return false;
 			}
 		}
-		return false;
+		return true;
 	}
 
 }
