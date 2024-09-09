@@ -2,20 +2,20 @@ import java.util.ArrayList;
 
 public class CadastroPartido {
 
-	private ArrayList<Partido> partido;
+	private ArrayList<Partido> partidos;
 
 	public boolean cadastraPartido(Partido p) {
-		for (Partido partido : partido) {
+		for (Partido partido : partidos) {
 			if (partido.getNumero() == p.getNumero()) {
 				return false;
 			}
 		}
-		partido.add(p);
+		partidos.add(p);
 		return true;
 	}
 
 	public Partido consultaPartido(String nome) {
-		for (Partido partido : partido) {
+		for (Partido partido : partidos) {
 			if (partido.getNome().equals(nome)) {
 				return partido;
 			}
@@ -24,7 +24,7 @@ public class CadastroPartido {
 	}
 
 	public Partido consultaPartido(int numero) {
-		for (Partido partido : partido) {
+		for (Partido partido : partidos) {
 			if (partido.getNumero() == numero) {
 				return partido;
 			}
