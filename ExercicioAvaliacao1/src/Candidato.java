@@ -7,6 +7,18 @@ public class Candidato {
 	private String municipio;
 
 	private int votos;
+	public int getNumero() {
+		return numero;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public String getMunicipio() {
+		return municipio;
+	}
+	public int getVotos() {
+		return votos;
+	}
 	
 	public Candidato(int numero, String nome, String municipio) {
 		this.numero = numero;
