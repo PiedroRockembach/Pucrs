@@ -5,7 +5,8 @@ public class ACMEVoting {
 	private CadastroPartido cadastroPartido;
 
 	public ACMEVoting() {
-
+		this.candidatura = new Candidatura();
+		this.cadastroPartido = new CadastroPartido();
 	}
 
 	public void executar() {
