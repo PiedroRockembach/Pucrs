@@ -1,29 +1,23 @@
 main
-	ldi r1,prsoma
-	ldi r2,r1
-	ldi lr,somaum
+fraseum
+	ldi r1,primfrase
+	ldi lr,frasedois
 	bnz r7,printc
-somaum
-	ldw r1,a
-	ldw r2,b
-	add r3,r2,r1
-	stw r3,0xf002
-	bnz r7,fim
+frasedois
+	ldi r1,segfrase
+	ldi lr,fim
+	bnz r7,printc
 	
 printc	
-	bez r2,lr
-	ldb r3,r2
+	bez r1,lr
+	ldb r3,r1
 	stw r3,0xf000
-	add r2,1
+	add r1,1
 	bnz r7,printc
-sum
 
 fim
 	hcf
 
-a	5
-b	2
-c	10
-prsoma	"Esta é a primeira soma"
-
-segsoma	"Esta é a segunda soma"
+primfrase	"Esta é a primeira soma"
+segfrase	"Esta é a segunda soma"
+tercfrase	"Finalizando o programa"
