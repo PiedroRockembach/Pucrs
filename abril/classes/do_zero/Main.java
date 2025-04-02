@@ -1,4 +1,4 @@
-package abril.samantha.classes.do_zero;
+package abril.classes.do_zero;
 
 /**
 
