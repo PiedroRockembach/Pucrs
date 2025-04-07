@@ -1,4 +1,4 @@
-package abril.samantha.classes.em_andamento;
+package abril.classes.em_andamento;
 
 public class Avaliacao {
     
